@@ -1,0 +1,5 @@
+﻿  lvgl_VS2017.c
+d:\desktop\lvgl_project\vs2017_sdl\lvgl_vs2017\lv_conf.h(250): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+  d:\desktop\lvgl_project\vs2017_sdl\lvgl_vs2017\lv_conf.h(250): note: 命令行参数: 参见前面的“_CRT_SECURE_NO_WARNINGS”定义
+d:\desktop\lvgl_project\vs2017_sdl\lvgl_vs2017\lvgl_vs2017.c(29): warning C4013: “sysmon_create”未定义；假设外部返回 int
+  lvgl_VS2017.vcxproj -> D:\Desktop\LVGL_Project\VS2017_SDL\x64\Debug\lvgl_VS2017.exe
