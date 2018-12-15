@@ -14,7 +14,7 @@
  * to store the graphical objects and other data */
 #define LV_MEM_CUSTOM      0                /*1: use custom malloc/free, 0: use the built-in lv_mem_alloc/lv_mem_free*/
 #if LV_MEM_CUSTOM == 0
-#define LV_MEM_SIZE    (64U * 1024U)        /*Size memory used by `lv_mem_alloc` in bytes (>= 2kB)*/
+#define LV_MEM_SIZE    (256U * 1024U)        /*Size memory used by `lv_mem_alloc` in bytes (>= 2kB)*/
 #define LV_MEM_ATTR                         /*Complier prefix for big array declaration*/
 #define LV_MEM_AUTO_DEFRAG  1               /*Automatically defrag on free*/
 #else       /*LV_MEM_CUSTOM*/
@@ -28,15 +28,15 @@
  *===================*/
 
 /* Horizontal and vertical resolution of the library.*/
-#define LV_HOR_RES          (480)
-#define LV_VER_RES          (320)
+#define LV_HOR_RES          (800)
+#define LV_VER_RES          (480)
 #define LV_DPI              100
 
 /* Size of VDB (Virtual Display Buffer: the internal graphics buffer).
  * Required for buffered drawing, opacity and anti-aliasing
  * VDB makes the double buffering, you don't need to deal with it!
  * Typical size: ~1/10 screen */
-#define LV_VDB_SIZE         (20 * LV_HOR_RES)  /*Size of VDB in pixel count (1/10 screen size is good for first)*/
+#define LV_VDB_SIZE         (100u*1024u)  /*Size of VDB in pixel count (1/10 screen size is good for first)*/
 #define LV_VDB_ADR          0                  /*Place VDB to a specific address (e.g. in external RAM) (0: allocate automatically into RAM)*/
 
 /* Use two Virtual Display buffers (VDB) parallelize rendering and flushing (optional)
@@ -45,10 +45,10 @@
 #define LV_VDB2_ADR         0       /*Place VDB2 to a specific address (e.g. in external RAM) (0: allocate automatically into RAM)*/
 
 /* Enable anti-aliasing (lines, and radiuses will be smoothed) */
-#define LV_ANTIALIAS        1       /*1: Enable anti-aliasing*/
+#define LV_ANTIALIAS        0       /*1: Enable anti-aliasing*/
 
 /*Screen refresh settings*/
-#define LV_REFR_PERIOD      50    /*Screen refresh period in milliseconds*/
+#define LV_REFR_PERIOD      10    /*Screen refresh period in milliseconds*/
 #define LV_INV_FIFO_SIZE    32    /*The average count of objects on a screen */
 
 /*=================
@@ -89,13 +89,16 @@
 /*================
  *  THEME USAGE
  *================*/
-#define USE_LV_THEME_TEMPL      0       /*Just for test*/
-#define USE_LV_THEME_DEFAULT    0       /*Built mainly from the built-in styles. Consumes very few RAM*/
-#define USE_LV_THEME_ALIEN      0       /*Dark futuristic theme*/
-#define USE_LV_THEME_NIGHT      0       /*Dark elegant theme*/
-#define USE_LV_THEME_MONO       0       /*Mono color theme for monochrome displays*/
-#define USE_LV_THEME_MATERIAL   0       /*Flat theme with bold colors and light shadows*/
-#define USE_LV_THEME_ZEN        0       /*Peaceful, mainly light theme */
+#define LV_THEME_LIVE_UPDATE    1       /*1: Allow theme switching at run time. Uses 8..10 kB of RAM*/
+
+#define USE_LV_THEME_TEMPL      1       /*Just for test*/
+#define USE_LV_THEME_DEFAULT    1       /*Built mainly from the built-in styles. Consumes very few RAM*/
+#define USE_LV_THEME_ALIEN      1       /*Dark futuristic theme*/
+#define USE_LV_THEME_NIGHT      1       /*Dark elegant theme*/
+#define USE_LV_THEME_MONO       1       /*Mono color theme for monochrome displays*/
+#define USE_LV_THEME_MATERIAL   1       /*Flat theme with bold colors and light shadows*/
+#define USE_LV_THEME_ZEN        1       /*Peaceful, mainly light theme */
+#define USE_LV_THEME_NEMO       1       /*Water-like theme based on the movie "Finding Nemo"*/
 
 /*==================
  *    FONT USAGE
@@ -171,7 +174,7 @@
 /*Tab (dependencies: lv_page, lv_btnm)*/
 #define USE_LV_TABVIEW      1
 #if USE_LV_TABVIEW != 0
-#define LV_TABVIEW_ANIM_TIME    300     /*Time of slide animation [ms] (0: no animation)*/
+#define LV_TABVIEW_ANIM_TIME    100     /*Time of slide animation [ms] (0: no animation)*/
 #endif
 
 /*************************

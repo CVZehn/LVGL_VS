@@ -89,7 +89,7 @@ void lv_test_theme_2(void)
     if(th_options[0] == '\n')
 	    th_options++;
 
-    init_all_themes(0);
+    init_all_themes(21);
     th_act = themes[0];
     if(th_act == NULL) {
     	LV_LOG_WARN("lv_test_theme_2: no theme is enabled. Check lv_conf.h");
